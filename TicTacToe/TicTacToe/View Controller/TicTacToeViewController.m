@@ -7,6 +7,9 @@
 
 NSInteger const kFirstPlayer = 1;
 NSInteger const kSecondPlayer = 2;
+NSString *const kPlayer1WinsMessage = @"Player 1 wins!";
+NSString *const kPlayer2WinsMessage = @"Player 2 wins!";
+NSString *const kGameDrawMessage = @"Its a draw!";
 
 @interface TicTacToeViewController () <TicTacToeGameProtocol>
 
@@ -35,9 +38,23 @@ NSInteger const kSecondPlayer = 2;
 /* Selector for handling the player`s click on each slot */
 - (IBAction)updateSlot:(id)button;
 
+/* This method does the initial setting for the game */
+- (void)initialSetup;
+
 /* Selector for resetting the game */
 - (IBAction)resetGame;
 
+/* This method reads the values from the slots and return them in an array */
+- (NSArray *)getValueFromBoard;
+
+/* This method updates UI when game gets over */
+- (void)gameOverWithWinner:(BOOL)isWinner;
+
+/* This method checks if there are more slots available to play and returns Bool */
+- (BOOL)areMoreMovesLeftToPlay;
+
+/* This methods highlights the game board boundary on game over */
+- (void)highlightBoundary:(BOOL)isHighlight;
 
 @end
 
@@ -69,7 +86,7 @@ NSInteger const kSecondPlayer = 2;
         [button updateForPlayer2];
         self.currentPlayer = kFirstPlayer;
     }
-    
+
     [self.presenter analyzeRowsColumnsAndDigonals:[self getValueFromBoard]];
 }
 
@@ -81,6 +98,7 @@ NSInteger const kSecondPlayer = 2;
     self.currentPlayer = kFirstPlayer;
     self.playAgainButton.hidden = YES;
     self.resetButton.hidden = NO;
+    [self highlightBoundary:NO];
 }
 
 #pragma Private methods
@@ -95,14 +113,65 @@ NSInteger const kSecondPlayer = 2;
     return valueArray;
 }
 
+- (void)gameOverWithWinner:(BOOL)isWinner {
+    NSString *endMessage;
+    if (isWinner) {
+        if (self.currentPlayer == kFirstPlayer) {
+            endMessage = kPlayer2WinsMessage;
+        } else {
+
+            endMessage = kPlayer1WinsMessage;
+        }
+    } else {
+        endMessage = kGameDrawMessage;
+    }
+    [self highlightBoundary:YES];
+    self.winningTextLabel.text = endMessage;
+    [self enableButtons:NO];
+    self.resetButton.hidden = YES;
+    self.playAgainButton.hidden = NO;
+}
+
+- (void)enableButtons:(BOOL)enabled {
+    for (UIButton *button in self.gameSlotButtons) {
+        button.enabled = enabled;
+    }
+}
+
+- (BOOL)areMoreMovesLeftToPlay {
+    BOOL flag = NO;
+    for (UIButton *button in self.gameSlotButtons) {
+        if (button.enabled) {
+            flag = YES;
+        }
+    }
+    return flag;
+}
+
+- (void)highlightBoundary:(BOOL)isHighlight {
+    if (isHighlight) {
+        self.leftBoundary.backgroundColor = [UIColor blackColor];
+        self.rightBoundary.backgroundColor = [UIColor blackColor];
+        self.topBounbary.backgroundColor = [UIColor blackColor];
+        self.bottomBounbary.backgroundColor = [UIColor blackColor];
+    } else {
+        self.leftBoundary.backgroundColor = [UIColor whiteColor];
+        self.rightBoundary.backgroundColor = [UIColor whiteColor];
+        self.topBounbary.backgroundColor = [UIColor whiteColor];
+        self.bottomBounbary.backgroundColor = [UIColor whiteColor];
+    }
+}
+
 #pragma  Protocol methods
 
 - (void)finishGameWithWinner {
-    // To-Do: Handle the game over condition here.
+    [self gameOverWithWinner:YES];
 }
 
 - (void)proceedGame {
-   // To-Do: Handle the condition to proceed the game here.
+    if (![self areMoreMovesLeftToPlay]) {
+        [self gameOverWithWinner:NO];
+    }
 }
 
 
