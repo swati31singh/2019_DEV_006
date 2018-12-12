@@ -89,14 +89,10 @@
 		08627B1021C10335008F32D7 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
-				08627B1121C10335008F32D7 /* AppDelegate.h */,
-				08627B1221C10335008F32D7 /* AppDelegate.m */,
-				08627B3821C103E9008F32D7 /* TicTacToePresenter.h */,
-				08627B3921C103E9008F32D7 /* TicTacToePresenter.m */,
-				08627B3521C103A1008F32D7 /* TicTacToeViewController.h */,
-				08627B3621C103A1008F32D7 /* TicTacToeViewController.m */,
-				08627B4321C116AC008F32D7 /* UIButton + TicTacToeAdditions.h */,
-				08627B4421C116AC008F32D7 /* UIButton + TicTacToeAdditions.m */,
+				08627B4621C11A60008F32D7 /* Application Delegate */,
+				08627B4721C11A6D008F32D7 /* Presenter */,
+				08627B4821C11A80008F32D7 /* View Controller */,
+				08627B4921C11A8D008F32D7 /* Category */,
 				08627B4221C1131F008F32D7 /* Constants.h */,
 				08627B1721C10335008F32D7 /* Main.storyboard */,
 				08627B1A21C10336008F32D7 /* Assets.xcassets */,
@@ -114,6 +110,42 @@
 				08627B2C21C10336008F32D7 /* Info.plist */,
 			);
 			path = TicTacToeTests;
+			sourceTree = "<group>";
+		};
+		08627B4621C11A60008F32D7 /* Application Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				08627B1121C10335008F32D7 /* AppDelegate.h */,
+				08627B1221C10335008F32D7 /* AppDelegate.m */,
+			);
+			path = "Application Delegate";
+			sourceTree = "<group>";
+		};
+		08627B4721C11A6D008F32D7 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				08627B3821C103E9008F32D7 /* TicTacToePresenter.h */,
+				08627B3921C103E9008F32D7 /* TicTacToePresenter.m */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		08627B4821C11A80008F32D7 /* View Controller */ = {
+			isa = PBXGroup;
+			children = (
+				08627B3521C103A1008F32D7 /* TicTacToeViewController.h */,
+				08627B3621C103A1008F32D7 /* TicTacToeViewController.m */,
+			);
+			path = "View Controller";
+			sourceTree = "<group>";
+		};
+		08627B4921C11A8D008F32D7 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				08627B4321C116AC008F32D7 /* UIButton + TicTacToeAdditions.h */,
+				08627B4421C116AC008F32D7 /* UIButton + TicTacToeAdditions.m */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
