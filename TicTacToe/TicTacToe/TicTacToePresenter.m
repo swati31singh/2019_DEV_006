@@ -1,5 +1,6 @@
 
 #import "TicTacToePresenter.h"
+#import "Constants.h"
 
 NSInteger const kLeftDiagonalFirstElementIndex = 0;
 NSInteger const kDiagonalSecondElementIndex = 4;
@@ -12,17 +13,22 @@ NSInteger const kMaxRowsAndColumns = 3;
 
 @end
 
-
 @implementation TicTacToePresenter
 
-- (instancetype)init {
-    
+- (instancetype)initWithDelegate:(id <TicTacToeGameProtocol>)delegate {
     if (self = [super init]) {
-       
+        self.delegate = delegate;
     }
     return self;
 }
 
+- (void)analyzeRowsColumnsAndDigonals:(NSArray *)boardValues {
+    if ([self isWinningCombination:boardValues]) {
+        [self.delegate finishGameWithWinner];
+    } else {
+        [self.delegate proceedGame];
+    }
+}
 
 - (BOOL)isWinningCombination:(NSArray *)boardValuesArray {
     NSArray *rows;
@@ -55,7 +61,7 @@ NSInteger const kMaxRowsAndColumns = 3;
     NSSet *set = [NSSet setWithArray:array];
     if ([set count] == 0) {
         flag = NO;
-    } else if ([set containsObject:@""]) {
+    } else if ([set containsObject:EMPTY_TITLE_STRING]) {
         flag = NO;
         
     } else if ([set count] == 1) {
@@ -66,5 +72,4 @@ NSInteger const kMaxRowsAndColumns = 3;
     return flag;
 }
 @end
-
 
