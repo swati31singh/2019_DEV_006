@@ -7,7 +7,7 @@ Game is played by two players.
 
 Dsign Pattern -
 
-MVP- (Model View Presenter)
+MVP- (Modal View Presenter)
 
 Rules - 
 
