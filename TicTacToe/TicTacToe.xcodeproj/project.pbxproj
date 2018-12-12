@@ -16,6 +16,7 @@
 		08627B3A21C103E9008F32D7 /* TicTacToePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08627B3921C103E9008F32D7 /* TicTacToePresenter.m */; };
 		08627B3B21C103E9008F32D7 /* TicTacToePresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = 08627B3921C103E9008F32D7 /* TicTacToePresenter.m */; };
 		08627B4021C10573008F32D7 /* TicTacToePresenterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 08627B3F21C10573008F32D7 /* TicTacToePresenterTests.m */; };
+		08627B4521C116AC008F32D7 /* UIButton + TicTacToeAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 08627B4421C116AC008F32D7 /* UIButton + TicTacToeAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		08627B3921C103E9008F32D7 /* TicTacToePresenter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToePresenter.m; sourceTree = "<group>"; };
 		08627B3F21C10573008F32D7 /* TicTacToePresenterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToePresenterTests.m; sourceTree = "<group>"; };
 		08627B4221C1131F008F32D7 /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		08627B4321C116AC008F32D7 /* UIButton + TicTacToeAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton + TicTacToeAdditions.h"; sourceTree = "<group>"; };
+		08627B4421C116AC008F32D7 /* UIButton + TicTacToeAdditions.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton + TicTacToeAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				08627B3921C103E9008F32D7 /* TicTacToePresenter.m */,
 				08627B3521C103A1008F32D7 /* TicTacToeViewController.h */,
 				08627B3621C103A1008F32D7 /* TicTacToeViewController.m */,
+				08627B4321C116AC008F32D7 /* UIButton + TicTacToeAdditions.h */,
+				08627B4421C116AC008F32D7 /* UIButton + TicTacToeAdditions.m */,
 				08627B4221C1131F008F32D7 /* Constants.h */,
 				08627B1721C10335008F32D7 /* Main.storyboard */,
 				08627B1A21C10336008F32D7 /* Assets.xcassets */,
@@ -214,6 +219,7 @@
 				08627B2121C10336008F32D7 /* main.m in Sources */,
 				08627B1321C10335008F32D7 /* AppDelegate.m in Sources */,
 				08627B3721C103A1008F32D7 /* TicTacToeViewController.m in Sources */,
+				08627B4521C116AC008F32D7 /* UIButton + TicTacToeAdditions.m in Sources */,
 				08627B3A21C103E9008F32D7 /* TicTacToePresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
