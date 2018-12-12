@@ -87,9 +87,9 @@
 			children = (
 				08627B1121C10335008F32D7 /* AppDelegate.h */,
 				08627B1221C10335008F32D7 /* AppDelegate.m */,
+				08627B3821C103E9008F32D7 /* TicTacToePresenter.h */,
 				08627B3921C103E9008F32D7 /* TicTacToePresenter.m */,
 				08627B3521C103A1008F32D7 /* TicTacToeViewController.h */,
-				08627B3821C103E9008F32D7 /* TicTacToePresenter.h */,
 				08627B3621C103A1008F32D7 /* TicTacToeViewController.m */,
 				08627B1721C10335008F32D7 /* Main.storyboard */,
 				08627B1A21C10336008F32D7 /* Assets.xcassets */,
