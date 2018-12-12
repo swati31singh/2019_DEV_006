@@ -32,6 +32,7 @@ NSString *const kGameDrawMessage = @"Its a draw!";
 @property(weak, nonatomic) IBOutlet UIView *rightBoundary;
 @property(weak, nonatomic) IBOutlet UIView *topBounbary;
 @property(weak, nonatomic) IBOutlet UIView *bottomBounbary;
+/* Presenter reference */
 @property(strong, nonatomic) TicTacToePresenter *presenter;
 @property(nonatomic) NSInteger currentPlayer;
 
@@ -86,7 +87,6 @@ NSString *const kGameDrawMessage = @"Its a draw!";
         [button updateForPlayer2];
         self.currentPlayer = kFirstPlayer;
     }
-
     [self.presenter analyzeRowsColumnsAndDigonals:[self getValueFromBoard]];
 }
 
@@ -173,6 +173,4 @@ NSString *const kGameDrawMessage = @"Its a draw!";
         [self gameOverWithWinner:NO];
     }
 }
-
-
 @end

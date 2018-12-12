@@ -4,13 +4,13 @@
 
 @interface UIButton (TicTacToeAddition)
 
-/* Update the button display for player 1 "X" */
+/*This method updates the button display for player 1 "X" */
 - (void)updateForPlayer1;
 
-/* Update the button display for player 2 "O" */
+/* This method updates the button display for player 2 "O" */
 - (void)updateForPlayer2;
 
-/* set up the button for new game */
+/* This methods sets up the button for new game */
 - (void)reset;
 
 @end
