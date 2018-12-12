@@ -2,9 +2,11 @@
 #import <XCTest/XCTest.h>
 #import "TicTacToePresenter.h"
 
-@interface TicTacToeTests : XCTestCase
+@interface TicTacToeTests : XCTestCase <TicTacToeGameProtocol>
 {
     TicTacToePresenter *presenter;
+    BOOL successCallBackInvoked;
+    BOOL failureCallBackInvoked;
 }
 @end
 
@@ -12,6 +14,7 @@
 
 - (void)setUp {
     presenter = [[TicTacToePresenter alloc] init];
+    presenter.delegate = self;
 }
 
 - (void)tearDown {
@@ -148,5 +151,26 @@
     XCTAssertFalse(isIdentical);
 }
 
+- (void)testDelegateCallForSuccess
+{
+    NSArray *array = [NSArray arrayWithObjects:@"O", @"O", @"X", @"", @"X", @"", @"X", @"", @"", nil];
+    [presenter analyzeRowsColumnsAndDigonals:array];
+    XCTAssertTrue(successCallBackInvoked,@"Success Delegate called");
+}
+- (void)testDelegateCallForFailure
+{
+    NSArray *array = [NSArray arrayWithObjects:@"X", @"O", @"X", @"X", @"O", @"X", @"O", @"X", @"0", nil];
+    [presenter analyzeRowsColumnsAndDigonals:array];
+    XCTAssertTrue(failureCallBackInvoked,@"Failuer Delegate called");
+}
+
+#pragma Protocol methods
+
+- (void)finishGameWithWinner {
+    successCallBackInvoked = YES;
+}
+- (void)proceedGame {
+    failureCallBackInvoked = YES;
+}
 
 @end
